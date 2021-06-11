@@ -80,6 +80,17 @@ void load(char *name, Img *pic)
 void seamcarve(int targetWidth)
 {
     // Aplica o algoritmo e gera a saida em target->img...
+    // RGB8 (*ptr1) = source;
+    // RGB8 (*ptr2) = source;
+    RGB8 (*ptr3)[width] = (RGB8(*)[height]) source->img;
+
+    for(int linha=0; linha<height; linha++) {
+        for(int coluna=0; coluna<width; coluna++) {
+            ptr3[linha][coluna].r = 255;
+            ptr3[linha][coluna].g = 255;
+            ptr3[linha][coluna].b = 255;
+        }
+    }
 
     RGB8(*ptr)
     [target->width] = (RGB8(*)[target->width])target->img;
